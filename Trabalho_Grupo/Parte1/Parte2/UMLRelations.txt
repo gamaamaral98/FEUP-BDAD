@@ -1,0 +1,40 @@
+Pessoa(ID, Nome, Idade, Morada, Género)
+Cliente(ID, Pessoa(ID)->Pessoa, Nome, Idade, Morada, Género, NIB, NrCliente)
+Gestor(ID, Pessoa(ID)->Pessoa, Nome, Idade, Morada, Género, NIB, Ordenado, Contacto, Email, DataInício, DataFim)
+Funcionário(ID, Pessoa(ID)->Pessoa, Nome, Idade, Morada, Género, NIB, RegimeTrabalho, DuraçãoContracto, DataInício, DataFim)
+Loja(Endereço, Telefone, Horário, Gestor(ID)->Gestor)
+
+trabalhaEm(Funcionário(ID)->Funcionário, Loja(Endereço)->Loja)
+compraEm(Cliente(ID)->Cliente,Loja(ID)->Loja)
+
+Vendas(TipoProduto(ID)->TipoProduto, Loja(Endereço)->Loja, Lucro, QuantidadeVendida, Data)
+Produto(ID, QuantidadeProduto, Nome, TipoProduto(ID)->TipoProduto)
+TipoProduto(ID, Nome, Preço, CódigoBarras, DataValidade, Fornecedor(ID)->Fornecedor)
+Desconto(ID, Percentagem, DataInício, DataFim, Loja(Endereço)->Loja, TipoProduto(ID)->TipoProduto)
+
+Compra(ID, PreçoTotal, DataCompra, TipoPagamento, DataEntrega, LocalEntrega, Produto(ID)->Produto)
+
+adquire(Cliente(ID)->Cliente, Compra(ID)->Compra)
+ 
+Fornecedor(Nome, Endereço, Email, Telefone)
+CentroDistribuição(ID, Localização, Horário)
+
+forneceProdutos(Fornecedor(ID)->Fornecedor, CentroDistribuição(ID)->CentroDistribuição)
+éFornecida(CentroDistribuição(ID)->CentroDistribuição, Loja(ID)->Loja)
+distribui(CentroDistribuição(ID)->CentroDistribuição, TipoProduto(ID)->TipoProduto)
+
+//FD's
+Pessoa(ID, Nome, Idade, Morada, Género); FD's:
+	ID -> Nome, Idade, Morada, Género
+Esta relação não viola nem a BCNF nem a 3NF uma vez que ID é uma superchave da relação.
+
+
+Cliente(ID, Pessoa(ID)->Pessoa, Nome, Idade, Morada, Género, NIB, NrCliente); FD's:
+	
+	ID->Pessoa, Nome, Idade, Morada, Género, NIB, NrCliente
+Esta relação não viola nem a BCNF nem a 3NF uma vez que ID é uma superchave da relação.
+
+
+Gestor(ID, Pessoa(ID)->Pessoa, Nome, Idade, Morada, Género, NIB, Ordenado, Contacto, Email, DataInício, DataFim)
+
+	ID->Pessoa, Nome, Idade, Morada, Género, NIB, Ordenado, Contacto, Email, DataInício, DataFim)
