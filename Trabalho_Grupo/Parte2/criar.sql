@@ -100,7 +100,7 @@ CREATE TABLE COMPRA (
   TipoPagamento TEXT(20) NOT NULL,
   DataEntrega DATE CHECK (DataCompra > DataEntrega),
   LocalEntrega TEXT(70),
-  TipoProduto_ID INTEGER NOT NULL
+  TipoProduto_ID INTEGER NOT NULL REFERENCES TIPOPRODUTO
 );
 
 CREATE TABLE FORNECEDOR (
@@ -108,4 +108,18 @@ CREATE TABLE FORNECEDOR (
   Endereço TEXT(70) NOT NULL,
   Email TEXT(70) NOT NULL,
   Telefone TEXT(13) NOT NULL
+);
+
+CREATE TABLE CENTRODISTRIBUICAO (
+  ID INTEGER PRIMARY KEY,
+  Localizacao TEXT(70) NOT NULL,
+  Horario TEXT(70) NOT NULL
+);
+
+CREATE TABLE VENDAS (
+  TipoProduto_ID INTEGER NOT NULL,
+  Loja_Endereço TEXT NOT NULL,
+  Lucro REAL NOT NULL,
+  QuantidadeVendida INTEGER NOT NULL (QuantidadeVendida > -1),
+  Data DATE NOT NULL
 );
