@@ -86,4 +86,14 @@ CREATE TABLE DESCONTO (
   DataFim DATE NOT NULL CHECK (DataFim > DataInicio),
   Loja_Endereço TEXT (70) REFERENCES LOJA,
   TipoProduto_ID INTEGER REFERENCES TIPOPRODUTO
-)
+);
+
+CREATE TABLE COMPRA (
+  ID INTEGER PRIMARY KEY,
+  PrecoTotal REAL NOT NULL CHECK (PrecoTotal > 0),
+  DataCompra DATE NOT NULL,
+  TipoPagamento TEXT(20) NOT NULL,
+  DataEntrega DATE CHECK (DataCompra > DataEntrega),
+  LocalEntrega TEXT(70),
+  TipoProduto_ID INTEGER NOT NULL
+);
