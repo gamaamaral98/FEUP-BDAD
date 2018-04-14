@@ -23,7 +23,6 @@ CREATE TABLE CLIENTE (
   NIB INTEGER UNIQUE,
   UNIQUE(Pessoa_ID, NIB),
   UNIQUE(Pessoa_ID, NrCliente)
-  --,CHECK (Pessoa_ID IN (SELECT ID FROM PESSOA)) Esta condição está nos power points mas da erro
 );
 
 CREATE TABLE GESTOR (
@@ -31,11 +30,12 @@ CREATE TABLE GESTOR (
   Pessoa_ID INTEGER REFERENCES PESSOA,
   NIB INTEGER UNIQUE,
   Ordenado REAL CHECK (Ordenado > 0),
-  Contacto TEXT(14),
-  Email TEXT(40),
+  Contacto TEXT(14) UNIQUE,
+  Email TEXT(40) UNIQUE,
   DataInicio DATE NOT NULL,
-  DataFim DATE NOT NULL
-  --,CHECK (Pessoa_ID IN (SELECT ID FROM PESSOA))
+  DataFim DATE NOT NULL,
+  UNIQUE(Pessoa_ID, NIB),
+  UNIQUE(Pessoa_ID, ID)
 );
 
 CREATE TABLE FUNCIONARIO (
@@ -45,5 +45,16 @@ CREATE TABLE FUNCIONARIO (
   RegimeTrabalho TEXT(50) NOT NULL,
   DuracaoContrato INTEGER CHECK (DuracaoContrato > 0),
   DataInicio DATE NOT NULL,
-  DataFim DATE NOT NULL
+  DataFim DATE NOT NULL,
+  UNIQUE(Pessoa_ID, NIB),
+  UNIQUE(Pessoa_ID, ID)
+);
+
+CREATE TABLE LOJA (
+  Endereço TEXT(70) PRIMARY KEY,
+  Telefone TEXT(14) NOT NULL,
+  Horario TEXT(20) NOT NULL,
+  Gestor_ID INTEGER NOT NULL REFERENCES GESTOR,
+  UNIQUE(Endereço, Gestor_ID),
+  UNIQUE(Endereço, Telefone);
 );
