@@ -9,7 +9,7 @@ INSERT INTO PESSOA VALUES (6, "Ricardo Sousa", 22, 0123456, "Rua Igreja das Anta
 INSERT INTO PESSOA VALUES (7, "Carolina Soares", 20, 3213132, "Rua Igreja das notas", "F" );
 INSERT INTO PESSOA VALUES (8, "Herrera Ferreira", 105, 231123, "Estadio do dragao", "M" );
 INSERT INTO PESSOA VALUES (9, "Alexandra Carvalho", 24, 204604741, "Rua do Fereiro", "F");
-INSERT INTO PESSOA VALUES (10, "Ana Mendes", 26, 20181504, "Avenida dos Clérigos", "F");
+INSERT INTO PESSOA VALUES (10, "Ana Mendes", 26, 20181231504, "Avenida dos Clérigos", "F");
 INSERT INTO PESSOA VALUES (11, "Filipe Carvalho", 22, 15544645, "Rua Monte Aventino", "M");
 INSERT INTO PESSOA VALUES (12, "Joao Silva", 20, 04158018, "Rua das Antas", "M");
 INSERT INTO PESSOA VALUES (13, "Joana Rodrigues", 23, 03172180, "Rua Manuel Américo", "F");
@@ -57,8 +57,8 @@ INSERT INTO FORNECEDOR VALUES ("Nestle","Rua Tronco 864, 4465-244 Sao Mamede de 
 
 INSERT INTO CENTRODISTRIBUICAO VALUES (1, "Rua da Nestle, 116-3860", "Mon-Fri : 9AM-6PM, Sat-Sun : 9AM-5PM" );
 
-INSERT INTO TIPOPRODUTO VALUES (1, "Chocolate", 056000291452, "2018-07-21", "Nestl�");
-INSERT INTO TIPOPRODUTO VALUES (2, "Cereais", 012345678905, "2018-05-10", "Nestl�");
+INSERT INTO TIPOPRODUTO VALUES (1, "Chocolate", 056000291452, "2018-07-21", "Nestle");
+INSERT INTO TIPOPRODUTO VALUES (2, "Cereais", 012345678905, "2018-05-10", "Nestle");
 
 INSERT INTO PRODUTO VALUES (1, 1.10, 3, "KitKat", 1);
 INSERT INTO PRODUTO VALUES (2, 2.00, 2, "Wonka", 1);
