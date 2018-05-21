@@ -176,4 +176,5 @@ CREATE TABLE VENDAS (
   Lucro REAL NOT NULL,
   QuantidadeVendida INTEGER NOT NULL CHECK(QuantidadeVendida > -1),
   Data DATE NOT NULL
+  PRIMARY KEY(TipoProduto_ID, Loja_Endereço)
 );
