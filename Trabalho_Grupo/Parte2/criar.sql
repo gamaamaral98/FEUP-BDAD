@@ -1,5 +1,7 @@
+PRAGMA foreign_keys = on;
 .mode columns
 .headers on
+.nullvalue NULL
 
 DROP TABLE IF EXISTS PESSOA;
 DROP TABLE IF EXISTS CLIENTE;
@@ -48,7 +50,7 @@ CREATE TABLE GESTOR (
 CREATE TABLE FUNCIONARIO (
   Pessoa_ID INTEGER PRIMARY KEY REFERENCES PESSOA,
   Ordenado REAL CHECK (Ordenado >= 580) NOT NULL,
-  RegimeTrabalho TEXT(50) NOT NULL CHECK(RegimeTrabalho = "Part Time" OR RegimeTrabalho == "Full Time"),
+  RegimeTrabalho TEXT(50) NOT NULL CHECK(RegimeTrabalho = "Part Time" OR RegimeTrabalho = "Full Time"),
   DuracaoContrato INTEGER NOT NULL CHECK (DuracaoContrato > 0),
   DataInicio DATE NOT NULL CHECK(DataInicio > 1910),
   DataFim DATE NOT NULL CHECK (DataFim > DataInicio)
@@ -74,6 +76,7 @@ CREATE TABLE LOJA (
   Endereço TEXT(70) PRIMARY KEY,
   Telefone TEXT(14) NOT NULL, --Talvez por como PK?
   Horario TEXT(70) NOT NULL,
+  Localidade TEXT(70) NOT NULL,
   Gestor_ID INTEGER NOT NULL REFERENCES GESTOR,
 );
 
