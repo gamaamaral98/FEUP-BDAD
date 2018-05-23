@@ -72,3 +72,8 @@ INSERT INTO PRODUTO VALUES (3, 2.70, 1, "Estrelitas", 2, 2);
 INSERT INTO PRODUTO VALUES (4, 2.70, 1, "Cheerios", 2, 2);
 
 INSERT INTO DESCONTO VALUES (1, 15, "2018-04-05", "2018-04-15", "Avenida Robert Smith, 4710-249", 1);
+
+INSERT INTO TRABALHAEM VALUES (1, "Rua Henrique de Sousa Reis, 4200-003");
+INSERT INTO TRABALHAEM VALUES (2, "Rua Henrique de Sousa Reis, 4200-003");
+INSERT INTO TRABALHAEM VALUES (3, "Rua Henrique de Sousa Reis, 4200-003");
+INSERT INTO TRABALHAEM VALUES (4, "Rua Henrique de Sousa Reis, 4200-003");
