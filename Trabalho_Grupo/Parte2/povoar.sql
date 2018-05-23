@@ -50,9 +50,9 @@ INSERT INTO OPLIMPEZA VALUES (2);
 INSERT INTO OPCAIXA VALUES (3);
 INSERT INTO GERENTE VALUES (4);
 
-INSERT INTO LOJA VALUES ("Rua Henrique de Sousa Reis, 4200-003", "Porto", 220730920, "Mon-Fri : 8:30AM-11PM, Sat-Sun : 8:30AM-9PM", 6);
+INSERT INTO LOJA VALUES ("Rua Henrique de Sousa Reis, 4200-003", "Porto", 220730920, "Mon-Fri : 8:30AM - 11PM, Sat-Sun : 8:30AM - 9PM", 6);
 INSERT INTO LOJA VALUES ("Avenida Robert Smith, 4710-249", "Braga", 253240300, "Mon-Fri : 8:30AM - 11PM, Sat-Sun : 8:30AM - 9PM", 4);
-INSERT INTO LOJA VALUES (" R. Dr. Roberto Frias, 4200-465", "Porto", 225081400, "Mon-Fri : 8:30AM - 11PM, Sat-Sun : 8:30AM - 9PM", 7);
+INSERT INTO LOJA VALUES ("R. Dr. Roberto Frias, 4200-465", "Porto", 225081400, "Mon-Fri : 8:30AM - 11PM, Sat-Sun : 8:30AM - 9PM", 7);
 
 INSERT INTO FORNECEDOR VALUES ("Nestle","Rua Tronco 864, 4465-244 Sao Mamede de Infesta", "nestleportugal@gmail.com", 229050200);
 
