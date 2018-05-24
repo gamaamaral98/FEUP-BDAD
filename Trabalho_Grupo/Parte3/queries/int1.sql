@@ -4,13 +4,6 @@
 .headers	on
 .nullvalue	NULL
 
-CREATE VIEW  GESTORESBASICINFO AS
-SELECT GESTOR.Pessoa_ID, GESTOR.Contacto, PESSOA.Nome
-FROM GESTOR, PESSOA
-WHERE PESSOA.ID=GESTOR.Pessoa_ID;
-
-SELECT DISTINCT Loja.Endereço, Loja.Telefone, Loja.Horario, GESTORESBASICINFO.Nome AS "Gestor", GESTORESBASICINFO.Contacto
-FROM LOJA, GESTOR, GESTORESBASICINFO
-WHERE LOJA.localidade="Porto" AND Loja.Gestor_ID=GESTORESBASICINFO.Pessoa_ID;
-
-DROP VIEW GESTORESBASICINFO;
+SELECT DISTINCT Loja.Endereço, Loja.Telefone, Loja.Horario, Pessoa.Nome AS "Gestor", Gestor.Contacto
+FROM Loja INNER JOIN Pessoa, Gestor
+ON Pessoa.ID=Loja.Gestor_ID AND Gestor.Pessoa_ID=Loja.Gestor_ID AND Loja.Localidade="Porto";
