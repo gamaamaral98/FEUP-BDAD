@@ -88,10 +88,20 @@ CREATE TABLE TRABALHAEM (
   PRIMARY KEY(Funcionario_ID, Loja_Endereço)
 );
 
+CREATE TABLE COMPRA (
+  ID INTEGER PRIMARY KEY,
+  PrecoTotal REAL NOT NULL CHECK (PrecoTotal > 0),
+  DataCompra DATE NOT NULL,
+  TipoPagamento TEXT(20) NOT NULL CHECK(TipoPagamento = "Multibanco" or TipoPagamento = "Dinheiro"),
+  DataEntrega DATE CHECK (DataCompra < DataEntrega),
+  LocalEntrega TEXT(70)
+);
+
 CREATE TABLE COMPRAEM (
   Cliente_ID INTEGER REFERENCES CLIENTE,
   Loja_Endereço TEXT (70) REFERENCES LOJA,
-  PRIMARY KEY(Cliente_ID, Loja_Endereço)
+  Compra_ID INTEGER REFERENCES COMPRA,
+  PRIMARY KEY(Cliente_ID, Loja_Endereço, Compra_ID)
 );
 
 CREATE TABLE PRODUTO (
@@ -118,16 +128,6 @@ CREATE TABLE DESCONTO (
   DataFim DATE NOT NULL CHECK (DataFim > DataInicio),
   Loja_Endereço TEXT (70) REFERENCES LOJA,
   TipoProduto_ID INTEGER REFERENCES TIPOPRODUTO
-);
-
-CREATE TABLE COMPRA (
-  ID INTEGER PRIMARY KEY,
-  PrecoTotal REAL NOT NULL CHECK (PrecoTotal > 0),
-  DataCompra DATE NOT NULL,
-  TipoPagamento TEXT(20) NOT NULL CHECK(TipoPagamento = "Multibanco" or TipoPagamento = "Dinheiro"),
-  DataEntrega DATE CHECK (DataCompra < DataEntrega),
-  LocalEntrega TEXT(70),
-  Cliente_ID INTEGER NOT NULL REFERENCES CLIENTE
 );
 
 CREATE TABLE ADQUIRE (
