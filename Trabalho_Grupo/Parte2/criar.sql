@@ -41,7 +41,7 @@ CREATE TABLE CLIENTE (
 
 CREATE TABLE GESTOR (
   Pessoa_ID INTEGER PRIMARY KEY REFERENCES PESSOA,
-  Ordenado REAL CHECK (Ordenado > 580),
+  Ordenado REAL CHECK (Ordenado >= 580),
   Contacto TEXT(14),
   Email TEXT(40),
   DataInicio DATE NOT NULL CHECK(DataInicio > 1910),
