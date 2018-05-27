@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .mode columns
 .header on
@@ -6,6 +7,10 @@ PRAGMA foreign_keys = ON;
 
 --trigger que quando se apaga um tipo de produto, apaga registos em PRODUTO, DESCONTO, DISTRIBUI e VENDAS que tenha o ID desse tipo de produto
 CREATE TRIGGER Produtos_Eliminacao
+=======
+--tigger que quando se apaga um tipo de produto, apaga registos em PRODUTO, DESCONTO, DISTRIBUI e VENDAS que tenha o ID desse tipo de produto
+CREATE TRIGGER Produtos_Eiminacao
+>>>>>>> bd4dc90f5bfe10546500e5cbb902691703abda10
 BEFORE DELETE ON TIPOPRODUTO
 FOR EACH ROW
 BEGIN
