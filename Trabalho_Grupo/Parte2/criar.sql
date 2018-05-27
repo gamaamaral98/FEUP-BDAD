@@ -42,7 +42,7 @@ CREATE TABLE CLIENTE (
 
 CREATE TABLE GESTOR (
   Pessoa_ID INTEGER PRIMARY KEY REFERENCES PESSOA,
-  Ordenado REAL CHECK (Ordenado >= 580),
+  Ordenado REAL CHECK (Ordenado > 580),
   Contacto TEXT(14),
   Email TEXT(40),
   DataInicio DATE NOT NULL CHECK(DataInicio > 1910),
@@ -52,7 +52,7 @@ CREATE TABLE GESTOR (
 CREATE TABLE FUNCIONARIO (
   Pessoa_ID INTEGER PRIMARY KEY REFERENCES PESSOA,
   Ordenado REAL CHECK (Ordenado >= 580) NOT NULL,
-  RegimeTrabalho TEXT(50) NOT NULL CHECK(RegimeTrabalho = "Part Time" OR RegimeTrabalho == "Full Time"),
+  RegimeTrabalho TEXT(50) NOT NULL CHECK(RegimeTrabalho = "Part Time" OR RegimeTrabalho = "Full Time"),
   DuracaoContrato INTEGER NOT NULL CHECK (DuracaoContrato > 0),
   DataInicio DATE NOT NULL CHECK(DataInicio > 1910),
   DataFim DATE NOT NULL CHECK (DataFim > DataInicio)
