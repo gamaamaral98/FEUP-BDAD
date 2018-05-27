@@ -1,17 +1,19 @@
+-- Verifica se, quando se inserte em trabalhaem , o empregado e a loja existem
+
 .mode columns
 .header on
 .nullvalue NULL
-
 PRAGMA foreign_keys = ON;
 
--- da update do das vendas dum tipo de produto, ainda nao funciona
-CREATE TRIGGER Nova_compra
-AFTER INSERT ON COMPRAEM
+CREATE TRIGGER CHECK_TRABALHAEM
+BEFORE INSERT ON TRABALHAEM
 FOR EACH ROW
+WHEN NOT EXISTS (SELECT *
+                 FROM FUNCIONARIO
+                 WHERE Pessoa_ID = New.Funcionario_ID)
+OR NOT EXISTS (SELECT *
+               FROM LOJA
+               WHERE Endereço = New.Loja_Endereço)
 BEGIN
-  UPDATE VENDAS
-  SET Lucro = Lucro + (SELECT (QuantidadeProduto * Preco) as "Total"
-                       FROM PRODUTO
-                       WHERE PRODUTO.Compra_ID = New.Compra_ID AND PRODUTO.TipoProduto_ID = VENDAS.TipoProduto_ID)
-  WHERE VENDAS.Loja_Endereço = New.Loja_Endereço;
+  SELECT RAISE (ROLLBACK, 'Empregado ou loja não existem.');
 END;

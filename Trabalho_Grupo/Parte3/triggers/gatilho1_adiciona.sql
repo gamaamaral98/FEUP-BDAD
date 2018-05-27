@@ -1,6 +1,7 @@
+-- verifica, quando é alterado um nib duma linha, se já existe algum elemento com o mesmo nib
 .mode columns
 .header on
-.nullvalue NULL 
+.nullvalue NULL
 
 PRAGMA foreign_keys = ON;
 
