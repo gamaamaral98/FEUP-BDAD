@@ -1,3 +1,9 @@
+.mode columns
+.header on
+.nullvalue NULL
+
+PRAGMA foreign_keys = ON;
+
 SELECT * FROM PRODUTO;
 SELECT * FROM DESCONTO;
 SELECT * FROM DISTRIBUI;

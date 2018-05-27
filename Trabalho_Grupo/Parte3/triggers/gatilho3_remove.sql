@@ -4,5 +4,6 @@
 
 PRAGMA foreign_keys = ON;
 
-DROP TRIGGER IF EXISTS Produtos_Eliminacao;
+DROP TRIGGER IF EXISTS Nova_Compra;
 
+--Elimina o trigger3 Nova_Compra;
